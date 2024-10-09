@@ -16,13 +16,13 @@
         <a href="/Fruitshop?action=home">
             <img src="https://free.vector6.com/wp-content/uploads/2020/07/KhoThietKe-0000000184.jpg" alt="Logo" class="logo" style="height: 80px;">
         </a>
-        <form class="d-flex ms-3">
-            <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm" aria-label="Search">
+        <form class="d-flex ms-3" method="get" action="/gio-hang/productList.jsp">
+            <input class="form-control me-2" type="search" name="keyword" placeholder="Tìm sản phẩm" aria-label="Search">
             <button class="btn btn-outline-light" style="color: lavenderblush; background: #ff7c2a;" type="submit">Tìm</button>
         </form>
 
         <div class="user-cart ms-3">
-            <a href="/Fruitshop?action=viewCart" class="btn btn-warning position-relative">
+            <a href="/cart?action=view" class="btn btn-warning position-relative">
                 <i class="fas fa-shopping-cart"></i> Giỏ Hàng
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     <c:out value="${sessionScope.cartSize != null ? sessionScope.cartSize : 0}"/>
@@ -31,7 +31,6 @@
         </div>
 
         <div class="user-options ms-3">
-            <!-- Kiểm tra nếu người dùng đã đăng nhập -->
             <c:if test="${not empty sessionScope.currentUser}">
                 <span>Xin chào, ${sessionScope.currentUser.name}!</span>
                 <div class="dropdown">
@@ -114,12 +113,103 @@
         <div class="row">
             <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
                 <div class="card shadow-sm">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvZyyCAl12hwGXBbyTV2X1Y3qjB7VYn9Q-cw&s" class="card-img-top" alt="Dưa Lưới Đài Loan">
+                    <img src="${not empty product1.imageUrl ? product1.imageUrl : 'https://cdn.benhvienthucuc.vn/wp-content/uploads/2017/09/trai-cay-khong-nen-an-khi-bi-dau-da-day-600x400.jpg'}" class="card-img-top" alt="${product1.name}">
                     <div class="card-body">
-                        <h5 class="card-title">Dưa Lưới Đài Loan</h5>
-                        <p class="card-text text-danger">90,000 VND</p>
-                        <a href="#" class="btn btn-success">
-                            <i class="fas fa-shopping-cart"></i> giỏ hàng
+                        <h5 class="card-title">${product1.name} cacms</h5>
+                        <p class="card-text text-danger">${product1.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product1.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product2.imageUrl ? product2.imageUrl : 'https://cdn.baodongthap.vn/database/image/2019/03/29/oi.png'}" class="card-img-top" alt="${product2.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product2.name}</h5>
+                        <p class="card-text text-danger">${product2.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product2.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product3.imageUrl ? product3.imageUrl : 'https://suckhoedoisong.qltns.mediacdn.vn/2015/1-7-loai-hoa-qua-phai-an-ca-vo-moi-tot-cho-suc-khoe-hinh-3-1433562293350.jpg'}" class="card-img-top" alt="${product3.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product3.name}</h5>
+                        <p class="card-text text-danger">${product3.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product3.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product4.imageUrl ? product4.imageUrl : 'https://anphar.vn/vnt_upload/news/05_2016/1464230746_trai_cay_nen_an_buoi_toi_3_1.jpg'}" class="card-img-top" alt="${product4.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product4.name}</h5>
+                        <p class="card-text text-danger">${product4.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product4.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product5.imageUrl ? product5.imageUrl : 'https://media.tuyenquangtv.vn/public/file/fb9e3a036ab59c2c016ac3618a0d3aec/old_image/uploaded/130/2016/12/9/243_cac-loai-trai-cay-nen-va-khong-nen-an-vao-mua-dong-khong-an-qua-nay-mua-dong-4-1481173701-width500height375.jpg'}" class="card-img-top" alt="${product5.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product5.name}</h5>
+                        <p class="card-text text-danger">${product5.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product5.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product6.imageUrl ? product6.imageUrl : 'https://suckhoedoisong.qltns.mediacdn.vn/2014/camngon-17a8d.jpg'}" class="card-img-top" alt="${product6.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product6.name}</h5>
+                        <p class="card-text text-danger">${product6.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product6.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product7.imageUrl ? product7.imageUrl : 'https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/8/15/942274/Nhung-Loai-Trai-Cay-.jpeg'}" class="card-img-top" alt="${product7.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product7.name}</h5>
+                        <p class="card-text text-danger">${product7.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product7.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                <div class="card shadow-sm">
+                    <img src="${not empty product8.imageUrl ? product8.imageUrl : 'https://e7.pngegg.com/pngimages/894/727/png-clipart-of-peach-peach-trio-food-fruits.png'}" class="card-img-top" alt="${product8.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product8.name}</h5>
+                        <p class="card-text text-danger">${product8.price} VND</p>
+                        <a href="/Fruitshop?action=addToCart&productId=${product8.id}" class="btn btn-success">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
                         </a>
                     </div>
                 </div>

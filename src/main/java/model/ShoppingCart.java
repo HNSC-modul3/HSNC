@@ -6,7 +6,7 @@ public class ShoppingCart {
     private int shopping_cart_id;
     private Double total_price ;
     private int user_id;
-    private Date ngay_mua;
+    private Date date;
     private String address;
     private String status;
     public ShoppingCart() {}
@@ -15,7 +15,7 @@ public class ShoppingCart {
         this.shopping_cart_id = shopping_cart_id;
         this.total_price = total_price;
         this.user_id = user_id;
-        this.ngay_mua = ngay_mua;
+        this.date = ngay_mua;
         this.address = address;
         this.status = status;
     }
@@ -45,11 +45,11 @@ public class ShoppingCart {
     }
 
     public Date getNgay_mua() {
-        return ngay_mua;
+        return date;
     }
 
     public void setNgay_mua(Date ngay_mua) {
-        this.ngay_mua = ngay_mua;
+        this.date = ngay_mua;
     }
 
     public String getAddress() {

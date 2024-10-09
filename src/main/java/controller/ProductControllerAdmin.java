@@ -34,7 +34,7 @@ public class ProductControllerAdmin extends HttpServlet {
             } else if (ACTION_EDIT.equals(action)) {
                 int editId = Integer.parseInt(request.getParameter("id"));
                 Product product = productService.getById(editId);
-                request.setAttribute("product", product);
+                request.setAttribute("products", product);
                 request.getRequestDispatcher("/giao-dien/create/sua-san-pham.jsp").forward(request, response);
             } else if (ACTION_DELETE.equals(action)) {
                 int deleteId = Integer.parseInt(request.getParameter("id"));
@@ -70,7 +70,7 @@ public class ProductControllerAdmin extends HttpServlet {
                 int price = Integer.parseInt(request.getParameter("product_price"));
                 String image = request.getParameter("product_image");
                 int categoryId = Integer.parseInt(request.getParameter("category_id"));
-                Product newProduct = new Product(0, name, description, price, image, categoryId);
+                Product newProduct = new Product(0, name, price, description, image, categoryId);
                 productService.saveProduct(newProduct);
                 response.sendRedirect(request.getContextPath() + "/Admin");
             } else if (ACTION_EDIT.equals(action)) {
@@ -80,7 +80,7 @@ public class ProductControllerAdmin extends HttpServlet {
                 int updatedPrice = Integer.parseInt(request.getParameter("price"));
                 String updatedImage = request.getParameter("image");
                 int updatedCategoryId = Integer.parseInt(request.getParameter("category_id"));
-                Product updatedProduct = new Product(id, updatedName, updatedDescription, updatedPrice, updatedImage, updatedCategoryId);
+                Product updatedProduct = new Product(id, updatedName, updatedPrice, updatedDescription, updatedImage, updatedCategoryId);
                 productService.updateProduct(updatedProduct);
                 response.sendRedirect(request.getContextPath() + "/Admin");
             } else {

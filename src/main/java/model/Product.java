@@ -3,23 +3,21 @@ package model;
 
 public class Product {
     private int product_id;
-    private String product_name;
-    private int product_price;
-    private String product_description;
-    private String product_image;
+    private String name;
+    private String description;
+    private int price;
+    private String image;
     private int category_id;
     public Product() {}
-    public Product(int product_id, String product_name, int product_price, String product_description, String product_image) {
+    public Product(int product_id, String name, int price, String description, String image, int category_id) {
         this.product_id = product_id;
-        this.product_name = product_name;
-        this.product_price = product_price;
-        this.product_description = product_description;
-        this.product_image = product_image;
+        this.name = name;
+        this.price = price;
+        this.description =description;
+        this.image = image;
         this.category_id = 1;
     }
 
-    public Product(int i, String name, String description, int price, String image, int categoryId) {
-    }
 
 
     public int getProduct_id() {
@@ -30,36 +28,36 @@ public class Product {
         this.product_id = product_id;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getName() {
+        return name;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getProduct_price() {
-        return product_price;
+    public int getPrice() {
+        return price;
     }
 
-    public void setProduct_price(int product_price) {
-        this.product_price = product_price;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getProduct_image() {
-        return product_image;
+    public String getImage() {
+        return image;
     }
 
     public void setProduct_image(String product_image) {
-        this.product_image = product_image;
+        this.image = image;
     }
 
-    public String getProduct_description() {
-        return product_description;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
+    public void setDescription(String product_description) {
+        this.description = description;
     }
 
     public int getCategory_id() {

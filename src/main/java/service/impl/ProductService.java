@@ -5,15 +5,10 @@ import repository.IProductRepository;
 import repository.impl.ProductRepository;
 import service.IProductService;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class ProductService implements IProductService {
     private  IProductRepository productRepository = new ProductRepository();
-
-    public  Product product_id(int productId) {
-        return productRepository.getById(productId);
-    }
 
     @Override
     public List<Product> findAllProducts() {
